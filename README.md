@@ -1,15 +1,28 @@
 ## This is an add-in for [Fody](https://github.com/SimonCropp/Fody/) 
 
-Converts public fields to public properties
+Creates immutable types
 
 [Introduction to Fody](http://github.com/SimonCropp/Fody/wiki/SampleUsage)
 
-This feature means you can exclude the `{ get; set; }` on your properties and use fields instead.
+## Nuget package http://nuget.org/packages/Immutable.Fody 
 
-## Nuget package http://nuget.org/packages/Fielder.Fody 
+## Your code
 
-## How does this work. 
+    [Immutable]
+    public class Sample
+    {
+        public string MyField = "Foo";
+    }
 
- * For all types find all public instance fields with a capitalised first character
- * Convert all those fields to properties with the same name
- * Find all usages of those fields and point them to the new properties
+## What gets compiled
+
+    public class Sample
+    {
+        public readonly string MyField = "Foo";
+    }
+    
+## What fields are targeted 
+
+ * For Types with the `[Immutable]` attribute.
+ * All instance fields
+ 

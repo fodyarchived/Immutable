@@ -20,8 +20,7 @@ public partial class ModuleWeaver
 
     void ProcessField( FieldDefinition field)
     {
-        var name = field.Name;
-        if (!field.IsPublic || field.IsStatic || !char.IsUpper(name, 0))
+        if (field.IsStatic)
         {
             return;
         }

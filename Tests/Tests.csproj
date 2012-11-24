@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="AssemblyExtensions.cs" />
     <Compile Include="AssemblyWithBadWritesTests.cs" />
+    <Compile Include="Sample.cs" />
     <Compile Include="Verifier.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="XmlExtensions.cs" />
@@ -86,6 +87,10 @@
     <ProjectReference Include="..\Fody\Fody.csproj">
       <Project>{C3578A7B-09A6-4444-9383-0DEAFA4958BD}</Project>
       <Name>Fody</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReferenceAssembly\Immutable_PCL.csproj">
+      <Project>{40235741-D750-45B1-8DC5-49576025ABA9}</Project>
+      <Name>Immutable_PCL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
