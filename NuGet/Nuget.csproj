@@ -40,8 +40,8 @@
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP" />
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP71" />
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP71" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4%2Bsl4%2Bwp7%2Bwin8" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4%2Bsl4%2Bwp7%2Bwin8" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8" />
     <Copy SourceFiles="$(SolutionDir)NuGet\Immutable.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <Copy SourceFiles="$(SolutionDir)Fody\bin\$(ConfigurationName)\Immutable.Fody.dll" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <PepitaPackage.WeavingTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(SolutionDir)Fody\bin\$(ConfigurationName)\Immutable.Fody.dll" />
