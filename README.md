@@ -26,3 +26,10 @@ Creates immutable types
  * For Types with the `[Immutable]` attribute.
  * All instance fields
  
+
+## Icon
+
+Icon courtesy of [The Noun Project](http://thenounproject.com)
+
+
+
