@@ -1,5 +1,7 @@
 ## This is an add-in for [Fody](https://github.com/Fody/Fody/) 
 
+![Icon](https://raw.github.com/Fody/Immutable/master/Icons/package_icon.png)
+
 Creates immutable types
 
 [Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
