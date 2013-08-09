@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <FodyPath>..\packages\Fody.1.13.12</FodyPath>
+    <FodyPath>..\packages\Fody.1.14.0</FodyPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,9 +39,9 @@
     <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Fody.targets" />
     <None Include="packages.config" />
     <Reference Include="System" />
-    <None Include="Fody.targets" />
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
