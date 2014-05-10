@@ -42,9 +42,7 @@ public class IntegrationTests
     void LogError(string error, SequencePoint arg2)
     {
         errors.Add(error);
-
     }
-
 
     [Test]
     public void AssertNoErrors()
