@@ -6,9 +6,11 @@ Creates immutable types
 
 [Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
 
-## Nuget package 
+## The nuget package  [![NuGet Status](http://img.shields.io/nuget/v/Immutable.Fody.svg?style=flat)](https://www.nuget.org/packages/Immutable.Fody/)
 
-http://nuget.org/packages/Immutable.Fody 
+https://nuget.org/packages/Immutable.Fody/
+
+    PM> Install-Package Immutable.Fody
 
 ## Your code
 
