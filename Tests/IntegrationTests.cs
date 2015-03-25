@@ -39,11 +39,6 @@ public class IntegrationTests
         assembly = Assembly.LoadFile(afterAssemblyPath);
     }
 
-    void LogError(string error, SequencePoint arg2)
-    {
-        errors.Add(error);
-    }
-
     [Test]
     public void AssertNoErrors()
     {
