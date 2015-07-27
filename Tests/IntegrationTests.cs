@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Mono.Cecil;
-using Mono.Cecil.Cil;
 using NUnit.Framework;
 
 [TestFixture]
 public class IntegrationTests
 {
     Assembly assembly;
-    List<string> errors = new List<string>();
     string beforeAssemblyPath;
     string afterAssemblyPath;
 
@@ -25,9 +22,7 @@ public class IntegrationTests
         afterAssemblyPath = beforeAssemblyPath.Replace(".dll", "2.dll");
         File.Copy(beforeAssemblyPath, afterAssemblyPath, true);
 
-        var moduleDefinition = ModuleDefinition.ReadModule(afterAssemblyPath, new ReaderParameters
-        {
-        });
+        var moduleDefinition = ModuleDefinition.ReadModule(afterAssemblyPath, new ReaderParameters());
         var weavingTask = new ModuleWeaver
         {
             ModuleDefinition = moduleDefinition,
@@ -39,11 +34,6 @@ public class IntegrationTests
         assembly = Assembly.LoadFile(afterAssemblyPath);
     }
 
-    [Test]
-    public void AssertNoErrors()
-    {
-        Assert.IsEmpty(errors);
-    }
     [Test]
     public void ClassWithField()
     {

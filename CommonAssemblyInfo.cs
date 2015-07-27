@@ -2,5 +2,5 @@
 
 [assembly: AssemblyTitle("Immutable")]
 [assembly: AssemblyProduct("Immutable")]
-[assembly: AssemblyVersion("0.3.5")]
-[assembly: AssemblyFileVersion("0.3.5")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]
