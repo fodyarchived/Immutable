@@ -25,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -44,7 +46,7 @@
     <None Include="NugetAssets\dotnet.targets">
       <SubType>Designer</SubType>
     </None>
-    <None Include="NugetAssets\Immutable.nuspec">
+    <None Include="NugetAssets\Immutable.Fody.nuspec">
       <SubType>Designer</SubType>
     </None>
     <None Include="NugetAssets\install.ps" />
@@ -94,7 +96,7 @@
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl5+wp8+win8+wpa81+MonoAndroid16+MonoTouch40" />
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\dotnet" />
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Immutable.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\dotnet" />
-    <Copy SourceFiles="$(ProjectDir)NugetAssets\Immutable.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(ProjectDir)NugetAssets\Immutable.Fody.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <Copy SourceFiles="$(ProjectDir)NugetAssets\dotnet.targets" DestinationFiles="$(SolutionDir)NuGetBuild\build\dotnet\Immutable.Fody.targets" />
     <Copy SourceFiles="$(OutputPath)Immutable.Fody.dll" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <Copy SourceFiles="$(OutputPath)Immutable.Fody.pdb" DestinationFolder="$(SolutionDir)NuGetBuild" />
