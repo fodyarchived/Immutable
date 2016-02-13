@@ -58,7 +58,7 @@ public partial class ModuleWeaver
             {
                 continue;
             }
-            var message = string.Format("Method '{0}.{1}' has a write to the readonly field '{2}.{3}'.", methodDefinition.DeclaringType.Name, methodDefinition.Name, fieldDefinition.DeclaringType.Name, fieldDefinition.Name);
+            var message = $"Method '{methodDefinition.DeclaringType.Name}.{methodDefinition.Name}' has a write to the readonly field '{fieldDefinition.DeclaringType.Name}.{fieldDefinition.Name}'.";
             LogErrorPoint(message, instruction.SequencePoint);
         }
     }
