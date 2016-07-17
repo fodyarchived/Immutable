@@ -12,7 +12,7 @@ public class AssemblyWithBadWritesTests
 
     public AssemblyWithBadWritesTests()
     {
-        var assemblyPath = Path.GetFullPath(@"..\..\..\AssemblyWithBadWrites\bin\Debug\AssemblyWithBadWrites.dll");
+        var assemblyPath = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory, @"..\..\..\AssemblyWithBadWrites\bin\Debug\AssemblyWithBadWrites.dll"));
 #if (!DEBUG)
 
         assemblyPath = assemblyPath.Replace("Debug", "Release");
