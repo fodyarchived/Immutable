@@ -4,7 +4,6 @@ using Mono.Cecil.Cil;
 public partial class ModuleWeaver
 {
 
-
     public void CheckForInvalidSets()
     {
         foreach (var type in allTypes)
@@ -58,8 +57,7 @@ public partial class ModuleWeaver
             {
                 continue;
             }
-            var message = $"Method '{methodDefinition.DeclaringType.Name}.{methodDefinition.Name}' has a write to the readonly field '{fieldDefinition.DeclaringType.Name}.{fieldDefinition.Name}'.";
-            LogErrorPoint(message, instruction.SequencePoint);
+            LogError($"Method '{methodDefinition.DeclaringType.Name}.{methodDefinition.Name}' has a write to the readonly field '{fieldDefinition.DeclaringType.Name}.{fieldDefinition.Name}'.");
         }
     }
 

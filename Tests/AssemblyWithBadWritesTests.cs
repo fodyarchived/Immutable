@@ -25,17 +25,16 @@ public class AssemblyWithBadWritesTests
         var weavingTask = new ModuleWeaver
                               {
                                   ModuleDefinition = moduleDefinition,
-                                  LogErrorPoint = LogError,
+                                  LogError = LogError
                               };
 
         weavingTask.Execute();
 
     }
 
-    void LogError(string error, SequencePoint arg2)
+    void LogError(string error)
     {
         errors.Add(error);
-
     }
 
 
