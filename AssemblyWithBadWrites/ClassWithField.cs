@@ -1,5 +1,5 @@
 ﻿[Immutable]
-public class ClassWithField 
+public class ClassWithField
 {
     public string Member = "InitialValue";
     public void Method()

@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Mono.Cecil;
 
-
 public partial class ModuleWeaver
 {
-
     public List<FieldDefinition> ImmutableFields = new List<FieldDefinition>();
 
     void ProcessType(TypeDefinition typeDefinition)
@@ -31,7 +29,6 @@ public partial class ModuleWeaver
             ImmutableFields.Add(field);
         }
     }
-
 
     public void MakeFieldsReadOnly()
     {

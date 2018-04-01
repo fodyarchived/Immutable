@@ -1,90 +1,55 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using Mono.Cecil;
-using NUnit.Framework;
+using Fody;
+using Xunit;
+#pragma warning disable 618
 
-[TestFixture]
 public class IntegrationTests
 {
-    Assembly assembly;
-    string beforeAssemblyPath;
-    string afterAssemblyPath;
+    TestResult testResult;
 
     public IntegrationTests()
     {
-        beforeAssemblyPath = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory,@"..\..\..\AssemblyToProcess\bin\Debug\AssemblyToProcess.dll"));
-#if (!DEBUG)
-
-        beforeAssemblyPath = beforeAssemblyPath.Replace("Debug", "Release");
-#endif
-
-        afterAssemblyPath = beforeAssemblyPath.Replace(".dll", "2.dll");
-        File.Copy(beforeAssemblyPath, afterAssemblyPath, true);
-
-        using (var moduleDefinition = ModuleDefinition.ReadModule(beforeAssemblyPath, new ReaderParameters()))
-        {
-            var weavingTask = new ModuleWeaver
-            {
-                ModuleDefinition = moduleDefinition,
-            };
-
-            weavingTask.Execute();
-            moduleDefinition.Write(afterAssemblyPath);
-        }
-
-        assembly = Assembly.LoadFile(afterAssemblyPath);
+        var weavingTask = new ModuleWeaver();
+        testResult = weavingTask.ExecuteTestRun("AssemblyToProcess.dll");
     }
 
-    [Test]
+    [Fact]
     public void ClassWithField()
     {
-        var instance = assembly.GetInstance("ClassWithField");
+        var instance = testResult.GetInstance("ClassWithField");
 
         Type type = instance.GetType();
         var fieldInfo = type.GetField("Member");
-        Assert.IsTrue(fieldInfo.IsInitOnly);
-		Assert.AreEqual("InitialValue", instance.Member);
+        Assert.True(fieldInfo.IsInitOnly);
+        Assert.Equal("InitialValue", instance.Member);
     }
 
-    [Test]
+    [Fact]
     public void ClassWithNoAttribute()
     {
-        var instance = assembly.GetInstance("ClassWithNoAttribute");
+        var instance = testResult.GetInstance("ClassWithNoAttribute");
 
         Type type = instance.GetType();
         var fieldInfo = type.GetField("Member");
-        Assert.IsFalse(fieldInfo.IsInitOnly);
+        Assert.False(fieldInfo.IsInitOnly);
     }
 
-    [Test]
-	public void ClassWithReadOnlyField()
+    [Fact]
+    public void ClassWithReadOnlyField()
     {
-		var instance = assembly.GetInstance("ClassWithReadOnlyField");
+        var instance = testResult.GetInstance("ClassWithReadOnlyField");
 
         Type type = instance.GetType();
         var fieldInfo = type.GetField("Member");
-        Assert.IsTrue(fieldInfo.IsInitOnly);
-		Assert.AreEqual("InitialValue", instance.Member);
-
+        Assert.True(fieldInfo.IsInitOnly);
+        Assert.Equal("InitialValue", instance.Member);
     }
-    
-    
-    [Test]
+
+    [Fact]
     public void StructWithFields()
     {
-        var type = assembly.GetType("StructWithFields");
+        var type = testResult.Assembly.GetType("StructWithFields");
         var fieldInfo = type.GetField("Member");
-        Assert.IsTrue(fieldInfo.IsInitOnly);
+        Assert.True(fieldInfo.IsInitOnly);
     }
-
-
-#if(DEBUG)
-    [Test]
-    public void PeVerify()
-    {
-        Verifier.Verify(beforeAssemblyPath, afterAssemblyPath);
-    }
-#endif
-
 }

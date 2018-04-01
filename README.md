@@ -41,7 +41,7 @@ https://nuget.org/packages/Immutable.Fody/
 
  * For Types with the `[Immutable]` attribute.
  * All instance fields
- 
+
 
 ## Icon
 
