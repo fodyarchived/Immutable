@@ -13,28 +13,37 @@ Creates immutable types
 [![NuGet Status](https://img.shields.io/gitter/room/fody/fody.svg?style=flat)](https://gitter.im/Fody/Fody)
 
 
-## The nuget package
+## NuGet installation
 
-https://nuget.org/packages/Immutable.Fody/
+Install the [Immutable.Fody NuGet package](https://nuget.org/packages/Immutable.Fody/) and update the [Fody NuGet package](https://nuget.org/packages/Fody/):
 
-    PM> Install-Package Immutable.Fody
+```powershell
+PM> Install-Package Fody
+PM> Install-Package Immutable.Fody
+```
+
+The `Install-Package Fody` is required since NuGet always defaults to the oldest, and most buggy, version of any dependency.
 
 
 ## Your code
 
-    [Immutable]
-    public class Sample
-    {
-        public string MyField = "Foo";
-    }
+```csharp
+[Immutable]
+public class Sample
+{
+    public string MyField = "Foo";
+}
+```
 
 
 ## What gets compiled
 
-    public class Sample
-    {
-        public readonly string MyField = "Foo";
-    }
+```csharp
+public class Sample
+{
+    public readonly string MyField = "Foo";
+}
+```
 
 
 ## What fields are targeted 
