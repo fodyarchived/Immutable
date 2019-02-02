@@ -2,15 +2,13 @@
 [![NuGet Status](http://img.shields.io/nuget/v/Immutable.Fody.svg?style=flat)](https://www.nuget.org/packages/Immutable.Fody/)
 
 
-## This is an add-in for [Fody](https://github.com/Fody/Fody/) 
+## This is an add-in for [Fody](https://github.com/Fody/Home/)
 
 ![Icon](https://raw.github.com/Fody/Immutable/master/Icons/package_icon.png)
 
 Creates immutable types
 
-[Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
-
-[![NuGet Status](https://img.shields.io/gitter/room/fody/fody.svg?style=flat)](https://gitter.im/Fody/Fody)
+See also [Fody usage](https://github.com/Fody/Home/blob/master/pages/usage.md).
 
 
 ## NuGet installation
